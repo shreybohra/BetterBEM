@@ -28,6 +28,7 @@ function [dcp, forces] = dcp_calc(twist, polars, z, R, tsr, B, chord, r0, V)
     [a, ~, kdash, F] = afun(phi, twist, polars, z, R, B, chord, r0);
     adash = kdash/(1-kdash);
     
+    % find angle of attack of the element
     aoa = phi - twist;
     
     if aoa<deg2rad(30) && aoa>deg2rad(-10)
@@ -107,6 +108,7 @@ function [a, k, kdash, F] = afun(phi, twist, polars, r, R, B, chord, r0)
     cn = cl*cos(phi) + cd*sin(phi);
     ct = cl*sin(phi) - cd*cos(phi);
     
+    % Prandtl tip and root loss factors
     ftip = (B/2)*((R - r)/(r*abs(sin(phi))));
     Ftip = (2/pi) * acos(exp(-ftip));
     fhub = (B/2)*((r - r0)/(r0*abs(sin(phi))));
