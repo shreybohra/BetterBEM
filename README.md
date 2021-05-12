@@ -20,4 +20,4 @@ The input parameters are as follows:
 Polars is a cell array containing four different fits.
 Elements 1 and 2 are fits of the lift coefficient and drag coefficient respectively, against angle of attack **in radians**, between -10 and 30 degrees. This can be obtained from XFOIL.
 
-Elements 3 and 4 are fits of Cl and Cd respectively, but between angles of attack betwene -180 degrees and +180 degrees. 
+Elements 3 and 4 are fits of Cl and Cd respectively, but between angles of attack betwene -180 degrees and +180 degrees. These have been separated from the other polars as any extrapolation method used typically results in some inaccuracies in the normal angle range. This data is only used while finding the root; if the optimal angle of attack of the aerofoil is between -10 and 30 degrees - which it almost certainly is - then the higher accuracy data will be used for calculating dcp and the forces once converged parameters have been found.
